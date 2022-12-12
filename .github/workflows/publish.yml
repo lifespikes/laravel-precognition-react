@@ -5,7 +5,7 @@ on:
     types: [published]
 
 jobs:
-  build:
+  build-npm:
     runs-on: ubuntu-latest
     steps:
 
@@ -16,16 +16,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          registry-url: https://registry.npmjs.org/
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@lifespikes'
 
       - name: Install dependencies
         run: yarn && yarn install
-
       - name: Build
         run: yarn build
-
       - name: Publish
         run: yarn publish
-
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
