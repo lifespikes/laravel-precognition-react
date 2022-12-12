@@ -1,29 +1,28 @@
 {
   "name": "@lifespikes/laravel-precognition-react",
-  "version": "0.0.6",
-  "description": "Laravel Precognition React Hooks",
-  "source": "./src/index.ts",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "version": "0.0.7",
+  "description": "A set of React Hooks for Laravel Precognition",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/laravel-precognition-react.esm.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lifespikes/laravel-precognition-react.git"
   },
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "lint": "eslint --ext .ts ./src",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "size": "size-limit",
+    "lint": "tsdx lint",
     "lint:fix": "eslint --fix --ext .ts ./src",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run prettier && npm run lint"
+    "prepublishOnly": "npm run prettier && npm run lint",
+    "npm:publish": "yarn build && yarn size && npm publish --access=public"
   },
   "files": [
     "dist",
-    "LICENSE",
-    "README.md"
+    "src"
   ],
   "keywords": [
     "react",
@@ -34,12 +33,24 @@
   "author": "Felipe Valencia",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=17"
+    "react": ">=16"
   },
+  "size-limit": [
+    {
+      "path": "dist/laravel-precognition-react.cjs.production.min.js",
+      "limit": "40 KB"
+    },
+    {
+      "path": "dist/laravel-precognition-react.esm.js",
+      "limit": "40 KB"
+    }
+  ],
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
+    "@inertiajs/inertia": "^0.11.1",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -48,10 +59,11 @@
     "prettier": "^2.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "size-limit": "^8.1.0",
+    "tsdx": "^0.14.1",
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@inertiajs/inertia": "^0.11.1",
     "@inertiajs/inertia-react": "^0.8.1",
     "laravel-precognition": "^0.1.0"
   },

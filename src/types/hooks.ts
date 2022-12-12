@@ -4,7 +4,7 @@ import {
   Timeout,
   Validator,
 } from 'laravel-precognition/dist/types';
-import React from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { InertiaFormProps } from '@inertiajs/inertia-react';
 
 export type UsePrecognitionFormProps<TForm = Record<string, any>> = {
@@ -25,7 +25,7 @@ export type UsePrecognitionReturn<TForm = Record<string, any>> = {
   isValidating: string | null;
   isProcessingValidation: boolean;
   lastTouched: keyof TForm | null;
-  setLastTouched: React.Dispatch<React.SetStateAction<keyof TForm | null>>;
+  setLastTouched: Dispatch<SetStateAction<keyof TForm | null>>;
   touched: Array<keyof TForm>;
 
   setValidatorTimeout(duration: Timeout): UsePrecognitionReturn<TForm>;
