@@ -1,16 +1,16 @@
 import { useForm } from '@inertiajs/inertia-react';
 import { useMemo } from 'react';
 import {
-  UseInertiaPrecognitionForm,
-  UsePrecognitionFormOptions,
+  UseInertiaPrecognitionFormReturn,
+  UsePrecognitionFormProps,
 } from '../types';
 import { usePrecognition } from './usePrecognition';
 import { patchInertiaForm } from '../helpers/patchInertiaForm';
 
-export const useInertiaPrecognitionForm = <TForm = Record<string, any>>({
+export function useInertiaPrecognitionForm<TForm = Record<string, any>>({
   precognition: { method, url, config },
   form: { initialValues },
-}: UsePrecognitionFormOptions<TForm>): UseInertiaPrecognitionForm<TForm> => {
+}: UsePrecognitionFormProps<TForm>): UseInertiaPrecognitionFormReturn<TForm> {
   const inertia = useForm<TForm>(initialValues);
   const { touched, validator, setLastTouched, ...rest } =
     usePrecognition<TForm>(method, url, inertia.data, config);
@@ -37,4 +37,4 @@ export const useInertiaPrecognitionForm = <TForm = Record<string, any>>({
     passed,
     setLastTouched,
   });
-};
+}

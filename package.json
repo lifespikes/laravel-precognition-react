@@ -1,7 +1,8 @@
 {
   "name": "@lifespikes/laravel-precognition-react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Laravel Precognition React Hooks",
+  "source": "./src/index.ts",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",

@@ -9,14 +9,14 @@ import {
   RequestMethods,
   Timeout,
 } from 'laravel-precognition/dist/types';
-import { UsePrecognition } from '../types';
+import { UsePrecognitionReturn } from '../types';
 
-export const usePrecognition = <TForm = Record<string, any>>(
+export function usePrecognition<TForm = Record<string, any>>(
   method: RequestMethods,
   url: string,
   data: TForm,
   config?: Config
-): UsePrecognition<TForm> => {
+): UsePrecognitionReturn<TForm> {
   const [isValidating, setIsValidating] = useState<string | null>(null);
   const [isProcessingValidation, setIsProcessingValidation] = useState(false);
   const [touched, setTouched] = useState<Array<keyof TForm>>([]);
@@ -76,4 +76,4 @@ export const usePrecognition = <TForm = Record<string, any>>(
       return this;
     },
   };
-};
+}

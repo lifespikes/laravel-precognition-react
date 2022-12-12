@@ -1,5 +1,4 @@
-import { usePrecognition } from './hooks/usePrecognition';
-import { useInertiaPrecognitionForm } from './hooks/useInertiaPrecognitionForm';
-import { usePrecognitionForm } from './hooks/usePrecognitionForm';
-
-export { usePrecognition, useInertiaPrecognitionForm, usePrecognitionForm };
+export * from './hooks/useInertiaPrecognitionForm';
+export * from './hooks/usePrecognition';
+export * from './hooks/usePrecognitionForm';
+export * from './types';

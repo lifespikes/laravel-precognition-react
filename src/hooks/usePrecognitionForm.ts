@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import { toSimpleValidationErrors } from 'laravel-precognition';
-import { UsePrecognitionForm, UsePrecognitionFormOptions } from '../types';
+import { UsePrecognitionFormReturn, UsePrecognitionFormProps } from '../types';
 import { usePrecognition } from './usePrecognition';
 
-export const usePrecognitionForm = <TForm = Record<string, any>>({
+export function usePrecognitionForm<TForm = Record<string, any>>({
   precognition: { method, url, config },
   form: { initialValues },
-}: UsePrecognitionFormOptions<TForm>): UsePrecognitionForm<TForm> => {
+}: UsePrecognitionFormProps<TForm>): UsePrecognitionFormReturn<TForm> {
   const [data, setData] = useState<TForm>(initialValues);
   const [errors, setErrors] = useState<Record<keyof TForm, string> | null>(
     null
@@ -59,4 +59,4 @@ export const usePrecognitionForm = <TForm = Record<string, any>>({
     },
     passed,
   };
-};
+}
