@@ -1,7 +1,7 @@
 
 # @lifespikes/laravel-precognition-react
 
-[<img src="https://img.shields.io/npm/v/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://www.npmjs.com/package/react-keybinds)
+[<img src="https://img.shields.io/npm/v/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://www.npmjs.com/package/@lifespikes/laravel-precognition-react)
 <img src="https://img.shields.io/npm/types/@lifespikes/laravel-precognition-react?label=%20&amp;logo=typescript&amp;logoColor=white&amp;style=for-the-badge">
 <img src="https://img.shields.io/npm/dt/@lifespikes/laravel-precognition-react?style=for-the-badge" >
 [<img src="https://img.shields.io/bundlephobia/minzip/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://bundlephobia.com/package/@lifespikes/laravel-precognition-react)
