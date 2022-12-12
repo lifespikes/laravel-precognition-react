@@ -28,10 +28,41 @@ pnpm @lifespikes/laravel-precognition-react
 ```
 
 # Usage
+The package provides two hooks: `usePrecognitionForm` and `useInertiaPrecognitionForm`.
+
+Both hooks receive a `props` object, that follows the following structure:
+
+```typescript
+{
+  precognition: { // This is where the precognition configuration
+    method: 'put' // PUT, PATCH, POST, DELETE 
+    url: 'https://example.com' // URL to send the precognition request
+  },
+  form: {
+    initialValues: {
+      example: 'value value'
+    } // Initial values of the form
+  }
+}
+```
+
+Also, both hooks return the next properties and methods related to the `usePrecognition` hook:
+
+- `validator` - The validator instance
+- `validate(name)` - Validate a specific field
+- `isValidating` - Whether the form is validating
+- `isProcessingValidation` - Whether the form is processing the validation
+- `lastTouched` - The last touched field
+- `setLastTouched` - Set the last touched field(This will also trigger the validation)
+- `touched` - The touched fields,
+- `setValidatorTimeout(duration)` - Set the timeout for the validation.
 
 ### 1. Using with Inertia
-The hooks uses [Inertia.js](https://inertiajs.com/) `useForm` form helper hook under the hood. So it'll return the same properties and methods as the `useForm` hook.
+For using with Inertia.js, you need to import `useInertiaPrecognitionForm` hook. <br>
 
+The `useInertiaPrecognitionForm` hook uses [Inertia.js](https://inertiajs.com/forms) `useForm` form helper hook under the hood. So it'll return the same properties and methods as the `useForm` hook.
+
+#### Usage example:
 ```tsx
 import React, { ChangeEvent, FormEvent } from 'react';
 import {useInertiaPrecognitionForm} from '@lifespikes/laravel-precognition-react';
@@ -117,6 +148,15 @@ const ExampleForm = () => {
 
 This is a small example of the usage of the `usePrecognitionForm` hook with a simple/basic form.
 
+Also, this hook returns the following additional properties:
+
+- `data` - The form data.
+- `setData` - A function that sets the form data.
+- `errors` - The form errors.
+- `setErrors` - A function that sets the form errors.
+- `clearErrors` - A function that clears the form errors.
+
+#### Usage example:
 ```tsx
 import React, { ChangeEvent, FormEvent } from 'react';
 import {usePrecognitionForm} from '@lifespikes/laravel-precognition-react';
