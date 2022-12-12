@@ -20,10 +20,8 @@ jobs:
           scope: '@lifespikes'
 
       - name: Install dependencies
-        run: yarn && yarn install
-      - name: Build
-        run: yarn build
+        run: yarn
       - name: Publish
-        run: yarn publish
+        run: yarn npm:publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
