@@ -1,10 +1,14 @@
 {
-  "name": "laravel-precognition-react",
-  "version": "0.0.1",
+  "name": "@lifespikes/laravel-precognition-react",
+  "version": "0.0.2",
   "description": "Laravel Precognition React Hooks",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lifespikes/laravel-precognition-react.git"
+  },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
@@ -13,7 +17,7 @@
     "lint:fix": "eslint --fix --ext .ts ./src",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+    "prepublishOnly": "npm run prettier && npm run lint"
   },
   "files": [
     "dist",

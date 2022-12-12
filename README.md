@@ -1,5 +1,5 @@
 
-# laravel-precognition-react
+# @lifespikes/laravel-precognition-react
 
 [<img src="https://img.shields.io/npm/types/react-keybinds?label=%20&amp;logo=typescript&amp;logoColor=white&amp;style=for-the-badge">
 ](#)
@@ -12,19 +12,19 @@ The hooks are highly based on [laravel-precognition-vue](https://www.npmjs.com/p
 #### Using npm
 
 ```bash
-npm i laravel-precognition-react
+npm i @lifespikes/laravel-precognition-react
 ```
 
 #### Using Yarn
 
 ```bash
-yarn laravel-precognition-react
+yarn @lifespikes/laravel-precognition-react
 ```
 
 #### Using pnpm
 
 ```bash
-pnpm laravel-precognition-react
+pnpm @lifespikes/laravel-precognition-react
 ```
 
 # Usage
@@ -34,7 +34,7 @@ The hooks uses [Inertia.js](https://inertiajs.com/) `useForm` form helper hook u
 
 ```tsx
 import React, { ChangeEvent, FormEvent } from 'react';
-import {useInertiaPrecognitionForm} from 'laravel-precognition-react';
+import {useInertiaPrecognitionForm} from '@lifespikes/laravel-precognition-react';
 
 type FormFields = {
     name: string;
@@ -119,7 +119,7 @@ This is a small example of the usage of the `usePrecognitionForm` hook with a si
 
 ```tsx
 import React, { ChangeEvent, FormEvent } from 'react';
-import {usePrecognitionForm} from 'laravel-precognition-react';
+import {usePrecognitionForm} from '@lifespikes/laravel-precognition-react';
 
 type FormFields = {
   name: string;
