@@ -1,6 +1,6 @@
 {
   "name": "@lifespikes/laravel-precognition-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A set of React Hooks for Laravel Precognition",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,7 +31,8 @@
     "react",
     "laravel",
     "precognition",
-    "inertiajs"
+    "inertiajs",
+    "laravel-precognition"
   ],
   "author": "Felipe Valencia",
   "license": "MIT",

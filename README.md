@@ -6,7 +6,8 @@
 <img src="https://img.shields.io/npm/dt/@lifespikes/laravel-precognition-react?style=for-the-badge" >
 [<img src="https://img.shields.io/bundlephobia/minzip/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://bundlephobia.com/package/@lifespikes/laravel-precognition-react)
 
-Set of React hooks that integrates [Laravel Precognition](https://github.com/laravel/framework/pull/44339) with Inertia.js and simple forms. <br>
+
+A set of React hooks that integrates [Laravel Precognition](https://github.com/laravel/framework/pull/44339) with Inertia.js and simple forms. <br>
 The hooks are highly based on [laravel-precognition-vue](https://www.npmjs.com/package/laravel-precognition-vue?activeTab=readme).
 
 # Install
@@ -105,8 +106,8 @@ const ExampleForm = () => {
     );
   }
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     return put(route, {
       onSuccess: () => {
@@ -197,8 +198,8 @@ const ExampleForm = () => {
     );
   }
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     // Implement your own logic here
   };
