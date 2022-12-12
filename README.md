@@ -7,7 +7,7 @@
 Set of React hooks that integrates [Laravel Precognition](https://github.com/laravel/framework/pull/44339) with Inertia.js and simple forms. <br>
 The hooks are highly based on [laravel-precognition-vue](https://www.npmjs.com/package/laravel-precognition-vue?activeTab=readme).
 
-# Install (TBD)
+# Install
 
 #### Using npm
 
@@ -67,8 +67,8 @@ const ExampleForm = () => {
   const onHandleChange = (event: ChangeEvent<HTMLInputElement>) => {
     // This will validate the input and update the form data
     validateAndSetDataByKeyValuePair(
-            event.target.name as keyof FormFields,
-            event.target.value,
+        event.target.name as keyof FormFields,
+        event.target.value,
     );
   }
 
