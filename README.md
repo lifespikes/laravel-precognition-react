@@ -1,8 +1,10 @@
 
 # @lifespikes/laravel-precognition-react
 
-[<img src="https://img.shields.io/npm/types/react-keybinds?label=%20&amp;logo=typescript&amp;logoColor=white&amp;style=for-the-badge">
-](#)
+[<img src="https://img.shields.io/npm/v/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://www.npmjs.com/package/react-keybinds)
+<img src="https://img.shields.io/npm/types/react-keybinds?label=%20&amp;logo=typescript&amp;logoColor=white&amp;style=for-the-badge">
+<img src="https://img.shields.io/npm/dt/@lifespikes/laravel-precognition-react?style=for-the-badge" >
+[<img src="https://img.shields.io/bundlephobia/minzip/@lifespikes/laravel-precognition-react?style=for-the-badge">](https://bundlephobia.com/package/@lifespikes/laravel-precognition-react)
 
 Set of React hooks that integrates [Laravel Precognition](https://github.com/laravel/framework/pull/44339) with Inertia.js and simple forms. <br>
 The hooks are highly based on [laravel-precognition-vue](https://www.npmjs.com/package/laravel-precognition-vue?activeTab=readme).
