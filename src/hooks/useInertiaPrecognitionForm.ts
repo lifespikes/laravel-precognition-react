@@ -1,13 +1,17 @@
 import { useForm } from '@inertiajs/inertia-react';
 import { useMemo } from 'react';
 import {
+  FieldPath,
+  FieldValues,
   UseInertiaPrecognitionFormReturn,
   UsePrecognitionFormProps,
 } from '../types';
 import { usePrecognition } from './usePrecognition';
 import { patchInertiaForm } from '../helpers/patchInertiaForm';
 
-export function useInertiaPrecognitionForm<TForm = Record<string, any>>({
+export function useInertiaPrecognitionForm<
+  TForm extends FieldValues = FieldValues
+>({
   precognition: { method, url, config },
   form: { initialValues },
 }: UsePrecognitionFormProps<TForm>): UseInertiaPrecognitionFormReturn<TForm> {
@@ -17,24 +21,26 @@ export function useInertiaPrecognitionForm<TForm = Record<string, any>>({
   const passed = useMemo(
     () =>
       touched.filter(
-        (field: keyof TForm) => typeof inertia.errors[field] === 'undefined'
+        (field: FieldPath<TForm>) =>
+          typeof inertia.errors[field] === 'undefined'
       ),
     [inertia.errors, touched]
   );
 
   const patchedForm = patchInertiaForm(method, url, inertia, validator);
 
-  return Object.assign(patchedForm, {
+  return {
+    ...patchedForm,
     ...rest,
-    validateAndSetDataByKeyValuePair(name: keyof TForm, value: any) {
+    validator,
+    touched,
+    setLastTouched,
+    validateAndSetDataByKeyValuePair(name, value) {
       patchedForm.setData(name, value);
       setLastTouched(name);
 
       return this;
     },
-    validator,
-    touched,
     passed,
-    setLastTouched,
-  });
+  };
 }

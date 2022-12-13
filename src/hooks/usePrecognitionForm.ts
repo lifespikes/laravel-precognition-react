@@ -1,23 +1,24 @@
 import { useMemo, useState } from 'react';
 import { toSimpleValidationErrors } from 'laravel-precognition';
-import { UsePrecognitionFormReturn, UsePrecognitionFormProps } from '../types';
+import {
+  FieldPath,
+  FieldValues,
+  UsePrecognitionFormProps,
+  UsePrecognitionFormReturn,
+} from '../types';
 import { usePrecognition } from './usePrecognition';
 
-export function usePrecognitionForm<TForm = Record<string, any>>({
+export function usePrecognitionForm<TForm extends FieldValues = FieldValues>({
   precognition: { method, url, config },
   form: { initialValues },
 }: UsePrecognitionFormProps<TForm>): UsePrecognitionFormReturn<TForm> {
   const [data, setData] = useState<TForm>(initialValues);
-  const [errors, setErrors] = useState<Record<keyof TForm, string> | null>(
+  const [errors, setErrors] = useState<Record<FieldPath<TForm>, string> | null>(
     null
   );
   const clearErrors = () => setErrors(null);
-  const { validator, setLastTouched, touched, ...rest } = usePrecognition(
-    method,
-    url,
-    data,
-    config
-  );
+  const { validator, setLastTouched, touched, ...rest } =
+    usePrecognition<TForm>(method, url, data, config);
 
   validator.on('validatingChanged', () => {
     clearErrors();
@@ -32,7 +33,8 @@ export function usePrecognitionForm<TForm = Record<string, any>>({
   const passed = useMemo(
     () =>
       touched.filter(
-        (field: keyof TForm) => errors && typeof errors[field] === 'undefined'
+        (field: FieldPath<TForm>) =>
+          errors && typeof errors[field] === 'undefined'
       ),
     [errors, touched]
   );
@@ -47,7 +49,7 @@ export function usePrecognitionForm<TForm = Record<string, any>>({
     errors,
     setErrors,
     clearErrors,
-    validateAndSetDataByKeyValuePair(name: keyof TForm, value: any) {
+    validateAndSetDataByKeyValuePair(name, value) {
       setData({
         ...data,
         [name]: value,

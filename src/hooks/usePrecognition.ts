@@ -4,14 +4,15 @@
  */
 import { useEffect, useState } from 'react';
 import precognitive from 'laravel-precognition';
+import { Config, RequestMethods } from 'laravel-precognition/dist/types';
 import {
-  Config,
-  RequestMethods,
-  Timeout,
-} from 'laravel-precognition/dist/types';
-import { UsePrecognitionReturn } from '../types';
+  FieldPath,
+  FieldPaths,
+  FieldValues,
+  UsePrecognitionReturn,
+} from '../types';
 
-export function usePrecognition<TForm = Record<string, any>>(
+export function usePrecognition<TForm extends FieldValues = FieldValues>(
   method: RequestMethods,
   url: string,
   data: TForm,
@@ -19,8 +20,8 @@ export function usePrecognition<TForm = Record<string, any>>(
 ): UsePrecognitionReturn<TForm> {
   const [isValidating, setIsValidating] = useState<string | null>(null);
   const [isProcessingValidation, setIsProcessingValidation] = useState(false);
-  const [touched, setTouched] = useState<Array<keyof TForm>>([]);
-  const [lastTouched, setLastTouched] = useState<keyof TForm | null>(null);
+  const [touched, setTouched] = useState<FieldPaths<TForm>>([]);
+  const [lastTouched, setLastTouched] = useState<FieldPath<TForm> | null>(null);
 
   const validator = precognitive.validate((client) => {
     const lowerCasedMethod = method.toLowerCase();
@@ -37,12 +38,12 @@ export function usePrecognition<TForm = Record<string, any>>(
   useEffect(() => {
     setIsValidating(validator.validating());
     setIsProcessingValidation(validator.processingValidation());
-    setTouched(validator.touched() as unknown as Array<keyof TForm>);
+    setTouched(validator.touched() as FieldPaths<TForm>);
   }, []);
 
   useEffect(() => {
     if (lastTouched) {
-      validator.validate(lastTouched as unknown as string);
+      validator.validate(lastTouched as string);
       setLastTouched(null);
     }
   }, [lastTouched]);
@@ -56,12 +57,12 @@ export function usePrecognition<TForm = Record<string, any>>(
   );
 
   validator.on('touchedChanged', () =>
-    setTouched(validator.touched() as unknown as Array<keyof TForm>)
+    setTouched(validator.touched() as FieldPaths<TForm>)
   );
 
   return {
     validator,
-    validate(name: keyof TForm) {
+    validate(name) {
       setLastTouched(name);
 
       return this;
@@ -71,7 +72,7 @@ export function usePrecognition<TForm = Record<string, any>>(
     lastTouched,
     setLastTouched,
     touched,
-    setValidatorTimeout(duration: Timeout) {
+    setValidatorTimeout(duration) {
       validator.setTimeout(duration);
       return this;
     },
