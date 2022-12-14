@@ -21,7 +21,7 @@ npm i @lifespikes/laravel-precognition-react
 #### Using Yarn
 
 ```bash
-yarn @lifespikes/laravel-precognition-react
+yarn add @lifespikes/laravel-precognition-react
 ```
 
 #### Using pnpm

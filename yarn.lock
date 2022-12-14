@@ -993,21 +993,33 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@inertiajs/inertia-react@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@inertiajs/inertia-react/-/inertia-react-0.8.1.tgz#730e1f592086c8e97e21e3f4ed639cb952bcfd77"
-  integrity sha512-9Uu7t4EA9FrcREwWnOU/qW5i4hYFt+uFn5cqP6RGJo8lJS4u8t6Q9358oHuQUKbFEbaIjUu7aslCL3/Istctlg==
+"@inertiajs/core@1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@inertiajs/core/-/core-1.0.0-beta.2.tgz#a3060338c8d7f01be7a8f3c32377305645d4f41d"
+  integrity sha512-0tWQ937hSVpEWfzonCcIMXQMtZhL/OgqsGI+3xJgwWAD+TNk9Bz53RgQUUTpapBSmwMjoJLNKP+OW4COrVUYRg==
   dependencies:
-    lodash.isequal "^4.5.0"
-
-"@inertiajs/inertia@^0.11.1":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@inertiajs/inertia/-/inertia-0.11.1.tgz#f324f09a03e1dd944404bd09935c0141a4b3a85d"
-  integrity sha512-btmV53c54oW4Z9XF0YyTdIUnM7ue0ONy3/KJOz6J1C5CYIwimiKfDMpz8ZbGJuxS+SPdOlNsqj2ZhlHslpJRZg==
-  dependencies:
-    axios "^0.21.1"
+    axios "^0.27.0"
     deepmerge "^4.0.0"
+    nprogress "^0.2.0"
     qs "^6.9.0"
+
+"@inertiajs/core@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@inertiajs/core/-/core-1.0.0-beta.1.tgz#4b34d2323f6cc73972630dd222986cb0278c55e1"
+  integrity sha512-N9C14+6z653Mtk3cSiFFELalKpH/jWpUQth8fOdSgTlbV46o4g+nBgDmD2w44NGzm2YS6IVseQ8H4Utxxr4nMA==
+  dependencies:
+    axios "^0.27.0"
+    deepmerge "^4.0.0"
+    nprogress "^0.2.0"
+    qs "^6.9.0"
+
+"@inertiajs/react@^1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@inertiajs/react/-/react-1.0.0-beta.2.tgz#78387d5e97303954613dcc90c5fd0602d4fcc5e0"
+  integrity sha512-D/QhbR74sO0fy7XwTIysF7+mmCdkfKEwause6i+ONssy2mGYyXmthSZSfthr4QtIJMthWov+Q4WW+691yQeyDg==
+  dependencies:
+    "@inertiajs/core" "1.0.0-beta.2"
+    lodash.isequal "^4.5.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -1904,14 +1916,7 @@ axe-core@^4.4.3:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.6.0.tgz#1d07514866fa51262734b3357932fcf86961383a"
   integrity sha512-L3ZNbXPTxMrl0+qTXAzn9FBRvk5XdO56K8CvcCKtlxv44Aw2w2NCclGuvCWxHPw1Riiq3ncP/sxFYj2nUqdoTw==
 
-axios@^0.21.1:
-  version "0.21.4"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
-  integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
-  dependencies:
-    follow-redirects "^1.14.0"
-
-axios@^0.27.2:
+axios@^0.27.0, axios@^0.27.2:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
   integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
@@ -3470,7 +3475,7 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-follow-redirects@^1.14.0, follow-redirects@^1.14.9:
+follow-redirects@^1.14.9:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -5233,6 +5238,11 @@ npm-run-path@^4.0.0:
   integrity sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
   dependencies:
     path-key "^3.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 nwsapi@^2.2.0:
   version "2.2.2"
