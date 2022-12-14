@@ -50,7 +50,6 @@
     }
   ],
   "devDependencies": {
-    "@inertiajs/inertia": "^0.11.1",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
@@ -68,7 +67,8 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@inertiajs/inertia-react": "^0.8.1",
+    "@inertiajs/core": "^1.0.0-beta.1",
+    "@inertiajs/react": "^1.0.0-beta.2",
     "laravel-precognition": "^0.1.0"
   },
   "bugs": {

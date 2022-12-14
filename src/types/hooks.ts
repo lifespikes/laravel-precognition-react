@@ -1,3 +1,4 @@
+import { InertiaFormProps } from '@inertiajs/react';
 import {
   Config,
   RequestMethods,
@@ -5,7 +6,6 @@ import {
   Validator,
 } from 'laravel-precognition/dist/types';
 import { Dispatch, SetStateAction } from 'react';
-import { InertiaFormProps } from '@inertiajs/inertia-react';
 
 export type UsePrecognitionFormProps<TForm = Record<string, any>> = {
   precognition: {

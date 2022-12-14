@@ -1,4 +1,3 @@
-import { useForm } from '@inertiajs/inertia-react';
 import { useMemo } from 'react';
 import {
   UseInertiaPrecognitionFormReturn,
@@ -6,6 +5,7 @@ import {
 } from '../types';
 import { usePrecognition } from './usePrecognition';
 import { patchInertiaForm } from '../helpers/patchInertiaForm';
+import { useForm } from '@inertiajs/react';
 
 export function useInertiaPrecognitionForm<TForm = Record<string, any>>({
   precognition: { method, url, config },

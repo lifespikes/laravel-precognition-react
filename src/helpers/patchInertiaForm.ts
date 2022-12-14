@@ -4,9 +4,9 @@ import {
   ValidationErrors,
   Validator,
 } from 'laravel-precognition/dist/types';
-import { InertiaFormProps } from '@inertiajs/inertia-react';
 import { toSimpleValidationErrors } from 'laravel-precognition';
-import { Method, VisitOptions } from '@inertiajs/inertia';
+import { Method, VisitOptions } from '@inertiajs/core';
+import { InertiaFormProps } from '@inertiajs/react';
 
 const getOptionsWithValidator = (
   validator: Validator,
