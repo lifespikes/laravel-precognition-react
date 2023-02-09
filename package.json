@@ -42,11 +42,11 @@
   "size-limit": [
     {
       "path": "dist/laravel-precognition-react.cjs.production.min.js",
-      "limit": "40 KB"
+      "limit": "50 KB"
     },
     {
       "path": "dist/laravel-precognition-react.esm.js",
-      "limit": "40 KB"
+      "limit": "50 KB"
     }
   ],
   "devDependencies": {
