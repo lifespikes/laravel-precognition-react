@@ -1,6 +1,6 @@
 {
   "name": "@lifespikes/laravel-precognition-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A set of React Hooks for Laravel Precognition",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -50,7 +50,6 @@
     }
   ],
   "devDependencies": {
-    "@inertiajs/inertia": "^0.11.1",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
@@ -68,7 +67,7 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@inertiajs/inertia-react": "^0.8.1",
+    "@inertiajs/react": "^1.0.0",
     "laravel-precognition": "^0.1.0"
   },
   "bugs": {
