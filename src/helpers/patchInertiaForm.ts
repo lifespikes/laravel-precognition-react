@@ -4,9 +4,9 @@ import {
   ValidationErrors,
   Validator,
 } from 'laravel-precognition/dist/types';
-import { InertiaFormProps } from '@inertiajs/inertia-react';
 import { toSimpleValidationErrors } from 'laravel-precognition';
-import { Method, VisitOptions } from '@inertiajs/inertia';
+import { InertiaFormProps } from '@inertiajs/react/types/useForm';
+import { VisitOptions, Method } from '@inertiajs/core/types/types';
 
 const getOptionsWithValidator = (
   validator: Validator,
@@ -26,7 +26,7 @@ const getOptionsWithValidator = (
   };
 };
 
-export const patchInertiaForm = <TForm = Record<string, any>>(
+export const patchInertiaForm = <TForm extends Record<string, unknown>>(
   method: RequestMethods,
   url: string,
   form: InertiaFormProps<TForm>,

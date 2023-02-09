@@ -5,7 +5,7 @@ import {
   Validator,
 } from 'laravel-precognition/dist/types';
 import { Dispatch, SetStateAction } from 'react';
-import { InertiaFormProps } from '@inertiajs/inertia-react';
+import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 
 export type UsePrecognitionFormProps<TForm = Record<string, any>> = {
   precognition: {
@@ -31,11 +31,13 @@ export type UsePrecognitionReturn<TForm = Record<string, any>> = {
   setValidatorTimeout(duration: Timeout): UsePrecognitionReturn<TForm>;
 };
 
-export type InertiaPrecognitionFormProps<TForm = Record<string, any>> =
-  InertiaFormProps<TForm> & UsePrecognitionReturn<TForm>;
+export type InertiaPrecognitionFormProps<
+  TForm extends Record<string, unknown>
+> = InertiaFormProps<TForm> & UsePrecognitionReturn<TForm>;
 
-export interface UseInertiaPrecognitionFormReturn<TForm = Record<string, any>>
-  extends InertiaPrecognitionFormProps<TForm> {
+export interface UseInertiaPrecognitionFormReturn<
+  TForm extends Record<string, unknown>
+> extends InertiaPrecognitionFormProps<TForm> {
   validateAndSetDataByKeyValuePair(
     name: keyof TForm,
     value: any
@@ -46,11 +48,9 @@ export interface UseInertiaPrecognitionFormReturn<TForm = Record<string, any>>
 export type UsePrecognitionFormReturn<TForm = Record<string, any>> =
   UsePrecognitionReturn<TForm> & {
     data: TForm;
-    setData: React.Dispatch<React.SetStateAction<TForm>>;
+    setData: Dispatch<SetStateAction<TForm>>;
     errors: Record<keyof TForm, string> | null;
-    setErrors: React.Dispatch<
-      React.SetStateAction<Record<keyof TForm, string> | null>
-    >;
+    setErrors: Dispatch<SetStateAction<Record<keyof TForm, string> | null>>;
     clearErrors: () => void;
     validateAndSetDataByKeyValuePair(
       key: keyof TForm,
